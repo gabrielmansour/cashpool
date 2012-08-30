@@ -10,8 +10,8 @@ Feature: Groups
     When I go to the new group page
     And I enter a name
     And I press "Submit"
-    Then the group should exist
-
+    Then I should be on the group's page
+    And the payment due is $0
 
   Scenario: Invite a person to a group
     Given a group exists
@@ -24,5 +24,6 @@ Feature: Groups
     When my friend accepts the invitation
     Then he should be a member of the group
     And he should not be on the pending user list
+    And he should have a balance of $0
 
 

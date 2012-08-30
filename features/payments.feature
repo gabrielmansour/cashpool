@@ -16,11 +16,12 @@ Feature: Payments
     And the group's debt is $40
     And the group has 8 members
     Then the members should owe an equal amount of money to the group
+    #And every group member should be notified of the money request
 
   Scenario: Group member submits a payment
     Given a user owes money to a group
     When the user makes a payment to the group
     Then the user's debt to the group decreases by the amount paid
     And the group's debt is decreased by the amount paid
-
+    And I should see that the user made a payment to the group
 
