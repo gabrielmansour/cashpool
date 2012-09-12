@@ -38,7 +38,8 @@ end
 group :test do
   gem 'capybara'
   gem 'cucumber-rails'
-  gem 'factory_girl_rails', '~> 4.1.0'
+  #gem 'factory_girl_rails', '~> 4.1.0'
+  gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password
