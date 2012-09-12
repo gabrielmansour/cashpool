@@ -23,8 +23,22 @@ end
 gem 'jquery-rails'
 gem 'haml'
 
+gem 'omniauth'
+
 group :development, :test do
   gem 'cucumber'
+end
+
+group :development do
+  gem "guard", "~> 1.0.1"
+  gem "guard-bundler", "~> 0.1.3"
+  gem "guard-cucumber", "~> 0.7.5"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails', '~> 4.1.0'
 end
 
 # To use ActiveModel has_secure_password
