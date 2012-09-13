@@ -4,7 +4,7 @@ Feature: User
     And I am signed in to Facebook
     When I click the login link
     Then I should be signed in
-    
+
   Scenario: Log out
     Given I am signed in
     And I am on the home page

@@ -2,6 +2,7 @@ Cashpool::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/session_callbacks' }
   devise_scope :user do
     match "login" => "users/sessions#new", as: :login
+    match "logout" => "users/sessions#destroy", as: :logout
   end
 
   # The priority is based upon order of creation:
