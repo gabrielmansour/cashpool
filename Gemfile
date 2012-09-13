@@ -22,10 +22,12 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'formtastic', '~> 2.2.1'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'devise'
+gem 'inherited_resources', '~> 1.3.1'
 
 group :development, :test do
   gem 'cucumber'

@@ -24,6 +24,7 @@ Then /^I should not be signed in$/ do
 end
 
 Given /^I am signed in$/ do
+  step "I am signed in to Facebook"
   step "I am on the home page"
   step "I click the login link"
 end

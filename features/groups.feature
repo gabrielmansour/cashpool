@@ -9,7 +9,7 @@ Feature: Groups
   Scenario: Add a group
     When I go to the new group page
     And I enter a name
-    And I press "Submit"
+    And I press "Create Group"
     Then I should be on the group's page
     And the payment due is $0
 
