@@ -8,7 +8,7 @@
   %body
     %header
       - if current_user
-        #current_user= [current_user.first_name, current_user.last_name] * " "
+        #current_user= current_user.name
       - else
         = link_to "Log in", user_omniauth_authorize_path(:facebook), title: "Login with Facebook", id: :login
     #messages

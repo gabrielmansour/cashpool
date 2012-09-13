@@ -32,16 +32,18 @@ group :development, :test do
 end
 
 group :development do
-  gem "guard", "~> 1.0.1"
+  gem "guard", "~> 1.3.2"
   gem "guard-bundler", "~> 0.1.3"
   gem "guard-cucumber", "~> 0.7.5"
+  gem "guard-rspec", "~> 1.2.1"
+  gem 'rb-fsevent', '~> 0.9.1'
 end
 
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  #gem 'factory_girl_rails', '~> 4.1.0'
+  gem 'factory_girl_rails', '~> 4.1.0'
   gem 'rspec-rails'
 end
 

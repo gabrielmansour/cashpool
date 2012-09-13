@@ -9,11 +9,15 @@ class User < ActiveRecord::Base
   end
 
   def self.create_from_omniauth(auth_data)
-    create! do |u| 
-      u.facebook_id = 1
-      u.first_name = "Wilfred"
-      u.last_name = "Laurier"
+    create! do |u|
+      u.facebook_id = auth_data['uid']
+      u.first_name = auth_data['info']['first_name']
+      u.last_name = auth_data['info']['last_name']
+      u.email_address = auth_data['info']['email']
     end
-    # TODO make dynamic
+  end
+
+  def name
+    [first_name, last_name].join ' '
   end
 end
