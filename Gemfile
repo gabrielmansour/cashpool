@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem 'haml'
 
 gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'devise'
 
 group :development, :test do
   gem 'cucumber'

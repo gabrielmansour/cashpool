@@ -1,7 +1,7 @@
 Feature: User
   Scenario: Log in
     Given I am on the home page
-    And I am signed in with Facebook
+    And I am signed in to Facebook
     When I click the login link
     Then I should be signed in
     
