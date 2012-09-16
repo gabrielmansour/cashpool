@@ -6,26 +6,27 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header
-      - if current_user
-        #current_user= current_user.name
-        = link_to "Logout", logout_path, id: :logout
-      - else
-        = link_to "Log in", user_omniauth_authorize_path(:facebook), title: "Login with Facebook", id: :login
-    #messages
-      %p.notice= notice
-      %p.alert= alert
+    #container
+      %header
+        - if current_user
+          #current_user= current_user.name
+          = link_to "Logout", logout_path, id: :logout
+        - else
+          = link_to "Log in", user_omniauth_authorize_path(:facebook), title: "Login with Facebook", id: :login
+      #messages
+        %p.notice= notice
+        %p.alert= alert
 
-    = yield
+      = yield
 
 
 
-    #fb-root
-    :javascript
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=#{ENV['FB_APP_ID']}";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      #fb-root
+      :javascript
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=#{ENV['FB_APP_ID']}";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
