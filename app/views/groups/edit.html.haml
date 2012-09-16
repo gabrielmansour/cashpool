@@ -1,0 +1,17 @@
+%h2 Edit Group
+
+= semantic_form_for resource do |f|
+  = f.inputs
+  = f.actions
+
+
+%h3 Manage Members
+%p Invite your Facebook friends to participate in the group.
+
+%h4 Pending Members
+%ul#pending_members
+  - resource.memberships.each do |membership|
+    %li{ title: "added by #{membership.inviter}" }= membership.user.name
+
+= link_to "Invite Friends", '#', id: :invite_friends, data: {url: group_memberships_path(@group)}
+

@@ -18,7 +18,9 @@ Cashpool::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :groups
+  resources :groups do
+    resources :memberships, only: :create
+  end
 
   # Sample resource route with options:
   #   resources :products do

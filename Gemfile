@@ -20,7 +20,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 gem 'haml'
 gem 'formtastic', '~> 2.2.1'
 
@@ -31,6 +30,7 @@ gem 'inherited_resources', '~> 1.3.1'
 
 group :development, :test do
   gem 'cucumber'
+  gem 'pry'
 end
 
 group :development do
@@ -47,6 +47,9 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.1.0'
   gem 'rspec-rails'
+  gem 'capybara-mechanize'
+  gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
@@ -63,3 +66,5 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+gem 'httparty'

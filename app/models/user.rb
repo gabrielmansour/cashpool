@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
   def name
     [first_name, last_name].join ' '
   end
+  alias_method :to_s, :name
 end

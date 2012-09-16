@@ -10,6 +10,3 @@ When /^I press "([^"]*)"$/ do |button|
   click_button button
 end
 
-Then /^I should be on the group's page$/ do
-  current_path.should == group_path(Group.last) # TODO make less dependent on the db
-end

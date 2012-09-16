@@ -32,4 +32,10 @@ describe User do
     its(:email_address) { should == "wilson@example.com" }
     its(:persisted?) { should == true }
   end
+
+  describe "#to_s" do
+    it "should return the name" do
+      user.to_s.should == user.name
+    end
+  end
 end

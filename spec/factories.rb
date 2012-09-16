@@ -4,4 +4,12 @@ FactoryGirl.define do
     last_name  "Davies"
     sequence :facebook_id
   end
+
+  factory :group do
+    name "Coconut Water stash"
+  end
+
+  factory :membership do
+    facebook_id "12345"
+  end
 end
