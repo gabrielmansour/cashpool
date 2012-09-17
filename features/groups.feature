@@ -18,15 +18,17 @@ Feature: Groups
   Scenario: Invite a person to a group
     Given a group exists
     When I invite a friend to the group
-    Then my friend should be on the pending user list
+    Then he should be a member of the group
+    And he should be marked as pending
 
   # Invitations are automatically accepted, because we trust one another.
+  @javascript
   Scenario: Friend accepts the invitation
     Given a group exists
     And a friend has been invited
     When my friend is signed in
     Then he should be a member of the group
-    And he should not be on the pending user list
+    And he should not be marked as pending
     And he should have a balance of $0
 
 

@@ -9,4 +9,8 @@ class Membership < ActiveRecord::Base
       user.last_name = user_data["last_name"]
     end
   end
+  
+  def pending?
+    user.new_record?
+  end
 end

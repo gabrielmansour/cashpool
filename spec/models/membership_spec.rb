@@ -26,4 +26,18 @@ describe Membership do
       end
     end
   end
+  
+  describe "#pending?" do
+    it "should be true if a user does not exist in the db" do
+      membership.pending?.should == true
+    end
+
+    context "user exists in database" do
+      before { @user = FactoryGirl.create(:user, facebook_id: "627395206") }
+
+      it "should fetch the existing user from the db" do
+        membership.pending?.should == false
+      end
+    end
+  end
 end

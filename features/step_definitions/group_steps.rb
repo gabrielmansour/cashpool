@@ -2,6 +2,10 @@ When /^I enter a name$/ do
   fill_in :name, with: "Rehearsals coached by Kirsten"
 end
 
+Then /^I should see the group's name$/ do
+  page.should have_content("Rehearsals coached by Kirsten")
+end
+
 Then /^the payment due is (\$0)$/ do |amount|
   find("#payment_due").text.strip.should == amount
 end
@@ -23,9 +27,28 @@ When /^I invite a friend to the group$/ do
   page.driver.evaluate_script(%{ Cashpool.add_members([627395206]) })
 end
 
-Then /^my friend should be on the pending user list$/ do
-  find("#pending_members > li").should have_content("Gabriel Mansour")
-  find("#pending_members > li")['title'].should == "added by Wilfred Laurier"
-  all("#pending_members > li").size.should == 1
+Then /^he should be marked as pending$/ do
+  find('#members > li:contains("Gabriel Mansour")').should have_css(".pending")
+  find('#members > li:contains("Gabriel Mansour") .pending').text.strip.should == "pending"
+end
+
+Then /^he should not be marked as pending$/ do
+  find('#members > li:contains("Gabriel Mansour")').should_not have_css(".pending")
+  find('#members > li:contains("Gabriel Mansour")').should_not have_content("pending")
+end
+
+Then /^he should be a member of the group$/ do
+  visit group_path(@group)
+  find("#members > li").should have_content("Gabriel Mansour")
+  find("#members > li")['title'].should == "added by Wilfred Laurier"
+  all("#members > li").size.should == 1
+end
+
+Given /^a friend has been invited$/ do
+  step "I invite a friend to the group"
+end
+
+Then /^he should have a balance of (\$\d+)$/ do |amount|
+  find('#members > li:contains("Gabriel Mansour") .balance').text.strip.should == amount
 end
 

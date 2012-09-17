@@ -7,3 +7,14 @@
 %h3
   Payment due:
   %span#payment_due $0
+
+%h3 Members
+
+%ul#members
+  - resource.memberships.each do |membership|
+    %li{ title: "added by #{membership.inviter}" }
+      = membership.user.name
+      - if membership.pending?
+        %span.pending pending
+      %span.balance $0
+

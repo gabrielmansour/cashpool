@@ -29,3 +29,16 @@ Given /^I am signed in$/ do
   step "I click the login link"
 end
 
+When /^my friend is signed in$/ do
+  find("#logout").click
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = {
+    "uid" => '627395206',
+    "info" => {
+      "first_name" => "Gabriel",
+      "last_name" => "Mansour",
+      "email" => "gabriel@example.com"
+    }
+  }
+  find("#login").click
+end
