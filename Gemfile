@@ -48,6 +48,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.1.0'
   gem 'rspec-rails'
+  gem "shoulda-matchers"
   gem 'capybara-mechanize'
   gem 'capybara-webkit'
   gem 'launchy'

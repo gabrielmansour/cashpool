@@ -11,5 +11,7 @@ FactoryGirl.define do
 
   factory :membership do
     facebook_id "12345"
+    association :inviter, factory: :user
+    group
   end
 end
