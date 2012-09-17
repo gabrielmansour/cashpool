@@ -12,6 +12,7 @@ Feature: Groups
     And I press "Create Group"
     Then I should be on the group's page
     And I should see the group's name
+    And I should see that I am the creator of the group
     And the payment due is $0
 
   @javascript

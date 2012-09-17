@@ -6,6 +6,10 @@ Then /^I should see the group's name$/ do
   page.should have_content("Rehearsals coached by Kirsten")
 end
 
+Then /^I should see that I am the creator of the group$/ do
+  find("#creator").should have_content("created by Wilfred Laurier")
+end
+
 Then /^the payment due is (\$0)$/ do |amount|
   find("#payment_due").text.strip.should == amount
 end

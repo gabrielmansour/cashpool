@@ -7,6 +7,7 @@ FactoryGirl.define do
 
   factory :group do
     name "Coconut Water stash"
+    association :creator, factory: :user
   end
 
   factory :membership do

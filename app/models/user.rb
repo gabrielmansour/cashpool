@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :trackable
+  has_many :groups, foreign_key: :creator_id
 
   attr_accessible :email_address
 
